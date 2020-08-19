@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "PvSystemDb": "server=(localdb)\\MSSQLLocalDB;Initial Catalog=PvSystemDB; Integrated Security=True;"
+  }
+}
