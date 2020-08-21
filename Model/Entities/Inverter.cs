@@ -10,7 +10,7 @@ namespace Model.Entities
 {
     public class Inverter
     {
-     
+     [Key]
         public int Id { get; set; }
 
        
@@ -19,5 +19,7 @@ namespace Model.Entities
         public string Manufacturer { get; set; }
         [Required]
         public float MaximumPower { get; set; }
+
+     
     }
 }

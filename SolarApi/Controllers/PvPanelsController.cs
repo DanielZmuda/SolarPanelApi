@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BusinessLayer;
+using BusinessLayer.ResourceParameters;
 using Microsoft.AspNetCore.Mvc;
 using Model.Entities;
 
@@ -22,9 +23,9 @@ namespace SolarApi.Controllers
         }
         // GET: api/<PvPanelsController>
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Get(PvPanelResourceParameters pvPanelResourceParameters)
         {
-            return Ok(_repositoryBLL.GetPvPanels());
+            return Ok(_repositoryBLL.GetPvPanels(pvPanelResourceParameters));
         }
 
         // GET api/<PvPanelsController>/5

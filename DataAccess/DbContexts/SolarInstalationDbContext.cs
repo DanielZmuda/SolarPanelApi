@@ -13,5 +13,8 @@ namespace DataAccess.DbContexts
 
         }
         public DbSet<PvSystem> PvSystem { get; set; }
+        public DbSet<PvPanel> PvPanel { get; set; }
+        public DbSet<Inverter> Inverter { get; set; }
+
     }
 }

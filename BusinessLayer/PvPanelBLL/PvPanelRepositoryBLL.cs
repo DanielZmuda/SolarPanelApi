@@ -3,6 +3,8 @@ using DataAccess.DbContexts;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
+using BusinessLayer.ResourceParameters;
 
 namespace BusinessLayer
 {
@@ -19,8 +21,30 @@ namespace BusinessLayer
         {
             return _repository.GetAll();
         }
+        public IEnumerable<PvPanel> GetPvPanels(PvPanelResourceParameters pvPanelResourceParameters)
+        { 
+            if(pvPanelResourceParameters.Power<=0 && string.IsNullOrWhiteSpace(pvPanelResourceParameters.SearchQuery))
+            {
+                return _repository.GetAll();
+            }
+            var collection = _repository.GetAll();
 
+            if (!string.IsNullOrWhiteSpace(pvPanelResourceParameters.SearchQuery))
+            {
+                pvPanelResourceParameters.SearchQuery = pvPanelResourceParameters.SearchQuery.Trim();
+                collection = collection.Where(a => a.Manufacturer.Contains(pvPanelResourceParameters.SearchQuery)
+                || a.Name.Contains(pvPanelResourceParameters.SearchQuery)
+                || a.Type.Contains(pvPanelResourceParameters.SearchQuery));
+            }
 
+            if (pvPanelResourceParameters.Power > 0)
+            {
+                collection =collection.Where(a => a.Power == pvPanelResourceParameters.Power);
+            }
+
+            return collection.ToList();
+        }
+        
         public PvPanel GetPvPanel(int Id)
         {
             return _repository.Get(Id);

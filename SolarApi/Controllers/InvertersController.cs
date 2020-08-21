@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BusinessLayer;
+using BusinessLayer.ResourceParameters;
 using Microsoft.AspNetCore.Mvc;
 using Model.Entities;
 
@@ -12,22 +13,22 @@ namespace SolarApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class InventersController : ControllerBase
+    public class InvertersController : ControllerBase
     {
         private readonly IInverterRepositoryBLL _repositoryBLL;
 
-        public InventersController(IInverterRepositoryBLL repositoryBLL)
+        public InvertersController(IInverterRepositoryBLL repositoryBLL)
         {
             _repositoryBLL = repositoryBLL;
         }
-        // GET: api/<InventersController>
+        // GET: api/<InvertersController>
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Get(InverterResourceParameters inverterResourceParameters)
         {
-            return Ok(_repositoryBLL.GetAll());
+            return Ok(_repositoryBLL.GetAll(inverterResourceParameters));
         }
 
-        // GET api/<InventersController>/5
+        // GET api/<InvertersController>/5
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {

@@ -19,9 +19,9 @@ namespace BusinessLayer.PvSystemBLL
         }
 
         public void AddPvPanelToTheSystem(int Id, int pvPanelId)
-        {
-            var repository = _repository.Get(Id);
-            repository.PvPanel = _pvPanelRepository.Get(pvPanelId);
+        { 
+            var  pvPanel = _pvPanelRepository.Get(pvPanelId);
+            _repository.Get(Id).PvPanel = pvPanel;
             _repository.SaveAll();
         }
 

@@ -46,11 +46,11 @@ namespace DataAccess.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: false),
+                    PvPanelId = table.Column<int>(nullable: true),
+                    InverterId = table.Column<int>(nullable: true),
                     NumberOfPvPanels = table.Column<int>(nullable: false),
                     MountingAngle = table.Column<float>(nullable: false),
-                    MountingDirection = table.Column<string>(nullable: false),
-                    PvPanelId = table.Column<int>(nullable: false),
-                    InverterId = table.Column<int>(nullable: false)
+                    MountingDirection = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -60,13 +60,13 @@ namespace DataAccess.Migrations
                         column: x => x.InverterId,
                         principalTable: "Inverter",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_PvSystem_PvPanel_PvPanelId",
                         column: x => x.PvPanelId,
                         principalTable: "PvPanel",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(

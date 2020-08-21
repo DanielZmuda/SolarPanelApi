@@ -1,4 +1,5 @@
-﻿using DataAccess.DbContexts;
+﻿using BusinessLayer.ResourceParameters;
+using DataAccess.DbContexts;
 using Model.Entities;
 using System;
 using System.Collections.Generic;
@@ -19,9 +20,44 @@ namespace BusinessLayer
 
         }
 
-        public IEnumerable<Inverter> GetAll()
+        public IEnumerable<Inverter> GetAll(InverterResourceParameters inverterResourceParameters)
         {
-            return _repository.GetAll();
+            
+                if (inverterResourceParameters.MaximumPower == 0 
+                    && string.IsNullOrWhiteSpace(inverterResourceParameters.SearchQuery) 
+                    && string.IsNullOrWhiteSpace(inverterResourceParameters.Name) 
+                    && string.IsNullOrWhiteSpace(inverterResourceParameters.Manufacturer))
+                {
+                    return _repository.GetAll();
+                }
+
+                var collection = _repository.GetAll();
+
+                if (inverterResourceParameters.MaximumPower > 0)
+                {
+                   collection = collection.Where(a => a.MaximumPower == inverterResourceParameters.MaximumPower);
+                }
+
+                if (!string.IsNullOrWhiteSpace(inverterResourceParameters.Name))
+                {
+                    collection = collection.Where(a => a.Name == inverterResourceParameters.Name);
+                }
+
+                if (!string.IsNullOrWhiteSpace(inverterResourceParameters.Manufacturer))
+                {
+                    collection = collection.Where(a => a.Manufacturer == inverterResourceParameters.Manufacturer);
+                }
+
+                if (!string.IsNullOrWhiteSpace(inverterResourceParameters.SearchQuery))
+                    {
+                inverterResourceParameters.SearchQuery = inverterResourceParameters.SearchQuery.Trim();
+                        collection = collection.Where(a => a.Manufacturer.Contains(inverterResourceParameters.SearchQuery)
+                        || a.Name.Contains(inverterResourceParameters.SearchQuery));
+                    }
+
+
+            return collection.ToList();
+           
         }
 
      

@@ -8,14 +8,13 @@ namespace Model.Entities
 {
     public class PvSystem
     {
+        [Key]
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
 
-        [ForeignKey("PvPanelId")]
         public PvPanel PvPanel { get; set; }
 
-        [ForeignKey("InverterId")]
         public Inverter Inverter { get; set; }
         [Required]
         public int NumberOfPvPanels { get; set; }
@@ -23,11 +22,5 @@ namespace Model.Entities
         public float MountingAngle { get; set; }
         [Required]
         public string MountingDirection { get; set; }
-
-        public int PvPanelId { get; set; }
-
-        public int InverterId { get; set; }
-
-
     }
 }

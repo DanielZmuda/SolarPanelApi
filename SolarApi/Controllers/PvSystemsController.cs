@@ -29,10 +29,10 @@ namespace SolarApi.Controllers
         }
 
         // GET api/<PvSystemsController>/5
-        [HttpGet("{pvSystemid}")]
-        public IActionResult Get(int pvSystemid)
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
         {
-            return Ok(_repositoryBLL.GetPvSystem(pvSystemid));
+            return Ok(_repositoryBLL.GetPvSystem(id));
         }
 
         // POST api/<PvSystemsController>
@@ -45,11 +45,8 @@ namespace SolarApi.Controllers
 
         // PUT api/<PvSystemsController>/5
         [HttpPatch("{pvSystemid}")]
-        public void Patch(int pvSystemid,int pvPanelid, JsonPatchDocument<PvSystem> patchDocument)
+        public void Patch(int pvSystemid,int pvPanelid)
         {
-
-
-            var pvsystem = new PvSystem();
             _repositoryBLL.AddPvPanelToTheSystem(pvSystemid, pvPanelid);
         }
 

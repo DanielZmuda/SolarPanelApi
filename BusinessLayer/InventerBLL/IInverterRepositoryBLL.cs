@@ -1,4 +1,5 @@
-﻿using Model.Entities;
+﻿using BusinessLayer.ResourceParameters;
+using Model.Entities;
 using System;
 using System.Collections.Generic;
 
@@ -8,7 +9,7 @@ namespace BusinessLayer
     {
         void AddEntity(Inverter model);
         void DeleteInverter(int id);
-        IEnumerable<Inverter> GetAll();
+        IEnumerable<Inverter> GetAll(InverterResourceParameters inverterResourceParameters);
         Inverter GetInverter(int Id);
         //IEnumerable<Inverter> GetInverters(string manufacturer, string searchQuery);
         bool SaveAll();
