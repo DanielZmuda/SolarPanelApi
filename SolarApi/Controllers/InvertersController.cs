@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BusinessLayer;
 using BusinessLayer.ResourceParameters;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Model.Entities;
 
@@ -45,10 +46,33 @@ namespace SolarApi.Controllers
 
         // PUT api/<InventersController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult Put(int id, Inverter model)
         {
+            var inverter = _repositoryBLL.GetInverter(id);
+            _repositoryBLL.PutInverters(inverter);
+            return Ok(inverter);
         }
 
+        [HttpPatch("{id}")]
+        public IActionResult PatchInverters(int id,[FromBody] JsonPatchDocument<Inverter> jsonPatchDocument)
+        {
+            var inverter = _repositoryBLL.GetInverter(id);
+
+            if (inverter == null)
+            {
+                return NotFound();
+            }
+            //validation
+            jsonPatchDocument.ApplyTo(inverter);
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            return new ObjectResult(inverter);
+
+        }
+   
         // DELETE api/<InventersController>/5
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)

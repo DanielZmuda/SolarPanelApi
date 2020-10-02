@@ -13,5 +13,7 @@ namespace BusinessLayer
         Inverter GetInverter(int Id);
         //IEnumerable<Inverter> GetInverters(string manufacturer, string searchQuery);
         bool SaveAll();
+        public void PutInverters(Inverter model);
+     
     }
 }

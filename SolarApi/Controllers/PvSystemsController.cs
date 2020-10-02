@@ -44,17 +44,31 @@ namespace SolarApi.Controllers
         }
 
         // PUT api/<PvSystemsController>/5
-        [HttpPatch("{pvSystemid}")]
-        public void Patch(int pvSystemid,int pvPanelid)
+        [HttpPatch("{id}")]
+        public IActionResult PatchInverters(int id, [FromBody] JsonPatchDocument<PvSystem> jsonPatchDocument)
         {
-            _repositoryBLL.AddPvPanelToTheSystem(pvSystemid, pvPanelid);
-        }
+            var pvSystem = _repositoryBLL.GetPvSystem(id);
 
+            if (pvSystem == null)
+            {
+                return NotFound();
+            }
+            //validation
+            jsonPatchDocument.ApplyTo(pvSystem);
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            return new ObjectResult(pvSystem);
+
+        }
         // DELETE api/<PvSystemsController>/5
         [HttpDelete("{pvSystemid}")]
-        public void Delete(int pvSystemid)
+        public IActionResult Delete(int pvSystemid)
         {
             _repositoryBLL.DeletePvSystem(pvSystemid);
+            return NoContent();
         }
     }
 }

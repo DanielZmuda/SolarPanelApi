@@ -88,7 +88,10 @@ namespace BusinessLayer
         {
             return _repository.Find(a => a.MaximumPower==inverterPower);
         }
-
+        public void PutInverters(Inverter model)
+        {
+            _repository.SaveAll();
+        }
     }
 }
 
