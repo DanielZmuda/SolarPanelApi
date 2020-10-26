@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BusinessLayer;
 using BusinessLayer.ResourceParameters;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using Model.Entities;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860

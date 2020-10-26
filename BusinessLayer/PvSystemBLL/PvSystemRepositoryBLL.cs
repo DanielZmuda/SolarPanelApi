@@ -1,9 +1,7 @@
 ﻿using DataAccess.DbContexts;
 using DataAccess.PvSystemRepository;
 using Model.Entities;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BusinessLayer.PvSystemBLL
 {
@@ -27,7 +25,6 @@ namespace BusinessLayer.PvSystemBLL
         {
             return _repository.GetAll();
         }
-
 
         public PvSystem GetPvSystem(int Id)
         {

@@ -1,6 +1,5 @@
 ﻿using BusinessLayer.ResourceParameters;
 using Model.Entities;
-using System;
 using System.Collections.Generic;
 
 namespace BusinessLayer
@@ -14,6 +13,5 @@ namespace BusinessLayer
         //IEnumerable<Inverter> GetInverters(string manufacturer, string searchQuery);
         bool SaveAll();
         public void PutInverters(Inverter model);
-     
     }
 }

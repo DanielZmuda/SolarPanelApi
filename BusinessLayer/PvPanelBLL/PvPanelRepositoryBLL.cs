@@ -1,8 +1,6 @@
 ﻿using Model.Entities;
 using DataAccess.DbContexts;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
 using BusinessLayer.ResourceParameters;
 

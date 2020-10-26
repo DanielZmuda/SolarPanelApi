@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using BusinessLayer.PvSystemBLL;
+﻿using BusinessLayer.PvSystemBLL;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Model.Entities;
@@ -16,11 +12,11 @@ namespace SolarApi.Controllers
     public class PvSystemsController : ControllerBase
     {
         private readonly IPvSystemRepositoryBLL _repositoryBLL;
-
         public PvSystemsController(IPvSystemRepositoryBLL repositoryBLL)
         {
             _repositoryBLL = repositoryBLL;
         }
+
         // GET: api/<PvSystemsController>
         [HttpGet]
         public IActionResult Get()
@@ -63,6 +59,7 @@ namespace SolarApi.Controllers
             return new ObjectResult(pvSystem);
 
         }
+
         // DELETE api/<PvSystemsController>/5
         [HttpDelete("{pvSystemid}")]
         public IActionResult Delete(int pvSystemid)

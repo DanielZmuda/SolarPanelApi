@@ -1,9 +1,6 @@
 ﻿using DataAccess.DbContexts;
-using DataAccess.PvSystemRepository;
 using Model.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace DataAccess.PvSystemRepository
 {
@@ -15,7 +12,6 @@ namespace DataAccess.PvSystemRepository
         {
             _context = context;
         }
-
         public bool SaveAll()
         {
             return _context.SaveChanges() > 0;

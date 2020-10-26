@@ -1,8 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Model.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace DataAccess.DbContexts
 {
@@ -15,6 +12,5 @@ namespace DataAccess.DbContexts
         public DbSet<PvSystem> PvSystem { get; set; }
         public DbSet<PvPanel> PvPanel { get; set; }
         public DbSet<Inverter> Inverter { get; set; }
-
     }
 }

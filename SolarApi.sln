@@ -9,9 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Model\Model.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{A75172F5-01DA-428B-83FB-C4E7E44AFAAD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessUnitTest", "DataAccessUnitTest\DataAccessUnitTest.csproj", "{B2479C03-9C34-49F0-9609-71893A6FD9CA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarApi", "SolarApi\SolarApi.csproj", "{D5C97990-8030-48F9-9DB3-4E83C7EC7FEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolarApi", "SolarApi\SolarApi.csproj", "{D5C97990-8030-48F9-9DB3-4E83C7EC7FEA}"
 	ProjectSection(ProjectDependencies) = postProject
 		{D4C4F03A-7CEB-4B8C-8F7F-2C4440E0A64B} = {D4C4F03A-7CEB-4B8C-8F7F-2C4440E0A64B}
 	EndProjectSection
@@ -34,10 +32,6 @@ Global
 		{A75172F5-01DA-428B-83FB-C4E7E44AFAAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A75172F5-01DA-428B-83FB-C4E7E44AFAAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A75172F5-01DA-428B-83FB-C4E7E44AFAAD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B2479C03-9C34-49F0-9609-71893A6FD9CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B2479C03-9C34-49F0-9609-71893A6FD9CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B2479C03-9C34-49F0-9609-71893A6FD9CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B2479C03-9C34-49F0-9609-71893A6FD9CA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D5C97990-8030-48F9-9DB3-4E83C7EC7FEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D5C97990-8030-48F9-9DB3-4E83C7EC7FEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5C97990-8030-48F9-9DB3-4E83C7EC7FEA}.Release|Any CPU.ActiveCfg = Release|Any CPU

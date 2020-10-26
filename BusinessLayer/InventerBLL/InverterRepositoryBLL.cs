@@ -1,19 +1,14 @@
 ﻿using BusinessLayer.ResourceParameters;
 using DataAccess.DbContexts;
 using Model.Entities;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
 
 namespace BusinessLayer
 {
     public class InverterRepositoryBLL : IInverterRepositoryBLL
     {
         private readonly IInvertersRepository _repository;
-    
-
         public InverterRepositoryBLL(IInvertersRepository repository)
         {
             _repository = repository;
@@ -54,10 +49,7 @@ namespace BusinessLayer
                         collection = collection.Where(a => a.Manufacturer.Contains(inverterResourceParameters.SearchQuery)
                         || a.Name.Contains(inverterResourceParameters.SearchQuery));
                     }
-
-
             return collection.ToList();
-           
         }
 
      
@@ -74,7 +66,6 @@ namespace BusinessLayer
 
         public bool SaveAll()
         {
-           
             return _repository.SaveAll();
         }
 

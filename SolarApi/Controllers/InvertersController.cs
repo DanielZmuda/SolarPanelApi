@@ -22,6 +22,7 @@ namespace SolarApi.Controllers
         {
             _repositoryBLL = repositoryBLL;
         }
+
         // GET: api/<InvertersController>
         [HttpGet]
         public IActionResult Get(InverterResourceParameters inverterResourceParameters)
